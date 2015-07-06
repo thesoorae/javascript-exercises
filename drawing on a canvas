@@ -1,0 +1,107 @@
+#Eloquent Javascript exercise : Drawing on a Canvas
+
+<canvas width="600" height="200"></canvas>
+<script>
+  var cx = document.querySelector("canvas").getContext("2d");
+  // Your code here.
+//cx.fillStyle="red";
+  cx.beginPath();
+  var xarr=[];
+  var yarr=[];
+ // cx.moveTo(50,200);
+  for(i=0;i<8;i+=1){
+    angle=(i/7)*2*Math.PI;
+    var x=100*Math.cos(angle)+100;
+  var y=100*Math.sin(angle)+100;
+    xarr.push(x);
+    yarr.push(y);
+  }
+  for(z=0;z<8;z++){
+    cx.moveTo(xarr[z],yarr[z]);
+    cx.quadraticCurveTo(100, 100, xarr[z+1],yarr[z+1]);}
+  cx.stroke();
+  
+ // console.log(yarr);
+</script>
+
+pie chart with labels
+
+<canvas width="600" height="300"></canvas>
+<script>
+  var cx = document.querySelector("canvas").getContext("2d");
+  var total = results.reduce(function(sum, choice) {
+    return sum + choice.count;
+  }, 0);
+
+  var currentAngle = -0.5 * Math.PI;
+  var centerX = 300, centerY = 150;
+  // Add code to draw the slice labels in this loop.
+  results.forEach(function(result) {
+    var sliceAngle = (result.count / total) * 2 * Math.PI;
+    cx.beginPath();
+    cx.arc(centerX, centerY, 100,
+           currentAngle, currentAngle + sliceAngle);
+    var middleAngle = currentAngle + 0.5 * sliceAngle;
+var textX = Math.cos(middleAngle) * 120 + centerX;
+var textY = Math.sin(middleAngle) * 120 + centerY;
+    
+    cx.lineTo(centerX, centerY);
+    cx.fillStyle = result.color;
+    cx.fill();
+    console.log(currentAngle);
+    cx.strokeStyle="black";
+    cx.moveTo(centerX, centerY);
+    cx.lineTo(textX, textY);
+    if(currentAngle>1){
+      cx.textAlign="right";}
+    else{cx.textAlign="left";}
+    cx.textBaseline="bottom";
+    cx.fillText(result.name, textX, textY);
+    cx.beginPath();
+    cx.strokeStyle="black";
+    cx.moveTo(centerX, centerY);
+    cx.lineTo(textX, textY);
+    cx.stroke();
+    currentAngle += sliceAngle;
+  });
+</script>
+
+bouncing ball
+<canvas width="400" height="400"></canvas>
+<script>
+  var cx = document.querySelector("canvas").getContext("2d");
+
+  var lastTime = null;
+  function frame(time) {
+    if (lastTime != null)
+      updateAnimation(Math.min(100, time - lastTime) / 1000);
+    lastTime = time;
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  x=100;
+  y=200;
+  dx=5;
+  dy=5;
+  xmin=10;
+  xmax=300;
+  ymin=10;
+  ymax=300;
+  function updateAnimation(step) {
+    cx.clearRect(0,0,400,400);
+    cx.strokeRect(xmin, ymin, xmax, ymax);
+    cx.beginPath();
+    cx.arc(x, y, 20, 0, Math.PI*2, true);
+    cx.closePath();
+    cx.fill();
+    if(x>xmax-20 || x<xmin+20){dx=-dx};
+                         if(y>ymax-20 || y<ymin+20){dy=-dy};
+    
+        
+    x+=dx;
+    y+=dy;
+    
+    // Your code here.
+  }
+</script>
