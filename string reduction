@@ -1,0 +1,50 @@
+function StringReduction(str) { 
+arr=str.split('');
+  
+  function notsame(x,y){
+    switch(x+"-"+y){
+      case "a-b":
+        return "c";
+        break;
+      case "a-c":
+        return "b";
+        break;
+      case "b-a":
+        return "c";
+        break;
+      case "b-c":
+        return "a";
+        break;
+      case "c-a":
+        return "b";
+        break;
+      case "c-b":
+        return "a";
+        break;
+      default:
+        return x+y;
+        break;
+    }};
+  
+function replaceall(arr){  
+  for(i=0;i<arr.length-1;i++){
+    if(arr[i]!=arr[i+1]){
+      newvar=notsame(arr[i],arr[i+1]);
+      arr.splice(i,2,newvar);
+  replaceall(arr);}}
+  return arr};
+  
+  
+  newarr=replaceall(arr);
+  return newarr.length;
+  //  return arr;
+//function replace(arr[x],arr[x+1], arr){
+  //  if(arr[x]!=arr[x+1]){arr.splice(x,2,
+  // code goes here  
+  //return str; 
+         
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+StringReduction(readline());           
