@@ -1,0 +1,16 @@
+function FibonacciChecker(num) { 
+fib=[0,1];
+  for(x=1;x<1000;x++){
+  add=fib[x]+fib[x-1];
+    fib.push(add);}
+  
+  // code goes here  
+check=fib.indexOf(num);
+  if(check==-1){return "no";}
+  else{return "yes"};
+  
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+FibonacciChecker(readline());           
