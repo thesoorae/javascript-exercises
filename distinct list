@@ -1,0 +1,23 @@
+function DistinctList(arr) { 
+
+  arr.sort();
+count=0;
+  sum=0;
+  for(x=1;x<arr.length;x++){
+    if(x==arr.length-1){
+      if(arr[x]==arr[x-1]){
+        count+=1;
+      sum+=count;}
+      else{sum+=count};}
+    else if (arr[x]==arr[x-1]){
+      count+=1;}
+    else{sum+=count;
+         count=0;}}
+  // code goes here  
+  return sum; 
+         
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+DistinctList(readline());           
