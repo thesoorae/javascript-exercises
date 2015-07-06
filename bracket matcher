@@ -1,0 +1,20 @@
+function BracketMatcher(str) { 
+  arr=str.split('');
+  rightpar=0;
+  leftpar=0;
+  for(x=0;x<arr.length;x++){
+    if(arr[x]=="("){rightpar+=1;}
+    else if(arr[x]==")"){leftpar+=1}};
+  
+  if(rightpar==leftpar){return "1";}
+  else {return "0"};
+  
+
+  // code goes here  
+ 
+         
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+BracketMatcher(readline());           
