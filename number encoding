@@ -1,0 +1,23 @@
+function NumberEncoding(str) { 
+arr=str.split('');
+answer=[];
+function alphaPlace(letter){
+  letter=letter.toLowerCase();
+  alphabet="abcdefghijklmnopqrstuvwxyz";
+  number=alphabet.indexOf(letter)+1;
+  return number};
+  
+ for(x=0;x<arr.length;x++){
+   if(alphaPlace(arr[x].toString())){
+      answer.push(alphaPlace(arr[x]));}
+  else{answer.push(arr[x])};}
+return answer.join('');
+   
+  
+  // code goes here  
+         
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+NumberEncoding(readline());           
