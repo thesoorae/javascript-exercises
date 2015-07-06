@@ -1,0 +1,42 @@
+function SwapII(str) { 
+  var arr=str.split("");
+
+
+  // code goes here
+  for(x=0;x<arr.length;x++){
+    if(arr[x]==arr[x].toUpperCase()){arr[x]=arr[x].toLowerCase();}
+    else if(arr[x]==arr[x].toLowerCase()){arr[x]=arr[x].toUpperCase();}
+    else{arr[x]=arr[x]};}
+  
+  str=arr.join(""); 
+         
+arr=str.split(' ');
+  
+  function swapNum(str){
+    num_store=[];
+    str_split=str.split('');
+    for(y=0;y<str_split.length;y++){
+      if(!isNaN(str_split[y])){
+        num_store.push([y,str_split[y]])};};
+    if(num_store.length==2){
+    str_split.splice(num_store[0][0],1,num_store[1][1]);
+    str_split.splice(num_store[1][0],1,num_store[0][1]);}
+  return str_split.join('');}
+    
+        
+        
+for(i=0;i<arr.length;i++){
+arr[i]=swapNum(arr[i]);}
+  
+  final=arr.join(' ');
+  return final;
+  
+  
+  
+  // code goes here  
+         
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+SwapII(readline());           
