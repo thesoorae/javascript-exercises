@@ -1,0 +1,32 @@
+function TripleDouble(num1,num2) { 
+
+  function triplednum(num){
+    arr=num.toString().split('');
+    triples=[];
+    for(x=2;x<arr.length;x++){
+      if((arr[x])==(arr[x-1]) && arr[x]==(arr[x-2])){
+        triples.push(arr[x])};};
+    return triples};
+  
+  
+  function doublednum(num){
+    arr=num.toString().split('');
+    doubles=[];
+  for(x=1;x<arr.length;x++){
+      if(arr[x]==arr[x-1]){
+        doubles.push(arr[x])};};
+    return doubles};
+    triples=triplednum(num1);
+ doubles=doublednum(num2);
+
+  for(i=0;i<triples.length;i++){
+  if(doubles.indexOf(triples[i])!=-1){
+    return "1"}};
+    return "0";
+  // code goes here  
+         
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+TripleDouble(readline());           
